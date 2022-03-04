@@ -1,0 +1,18 @@
+        local Stepped = game:GetService("RunService").RenderStepped
+    local cam = workspace.CurrentCamera
+    local pal = game.Players.LocalPlayer.Character
+    local deb = false
+    
+    	deb = not deb
+    	if deb == true then
+    		cam.CameraType = "Scriptable"
+    		repeat
+    			cam.CoordinateFrame = pal.Head.CFrame*CFrame.new(0,0,-0.6)
+    			Stepped:wait()
+    		until deb == false
+    		
+    		cam.CameraType = "Custom"
+    	end
+    end)
+
+    pal.Humanoid.Changed:connect(function() if pal.Humanoid.Sit == false then deb = false end
