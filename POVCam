@@ -15,4 +15,4 @@
     	end
     end)
 
-    pal.Humanoid.Changed:connect(function() if pal.Humanoid.Sit == false then deb = false end
+    pal.Humanoid.Changed:connect(function() if pal.Humanoid.Sit == false then deb = false end end)
