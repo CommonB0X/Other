@@ -1,18 +1,18 @@
-        local Stepped = game:GetService("RunService").RenderStepped
-    local cam = workspace.CurrentCamera
-    local pal = game.Players.LocalPlayer.Character
-    local deb = false
-    
-    	deb = not deb
-    	if deb == true then
-    		cam.CameraType = "Scriptable"
-    		repeat
-    			cam.CoordinateFrame = pal.Head.CFrame*CFrame.new(0,0,-0.6)
-    			Stepped:wait()
-    		until deb == false
-    		
-    		cam.CameraType = "Custom"
-    	end
-    end)
+local Stepped = game:GetService("RunService").RenderStepped
+cam = workspace.CurrentCamera
+pal = game.Players.LocalPlayer.Character
+deb = false
+script.Parent.MouseButton1Click:connect(function()
+	deb = not deb
+	if deb == true then
+		cam.CameraType = "Scriptable"
+		repeat
+			cam.CoordinateFrame = pal.Head.CFrame*CFrame.new(0,0,-0.6)
+			Stepped:wait()
+		until deb == false
+		
+		cam.CameraType = "Custom"
+	end
+end)
 
-    pal.Humanoid.Changed:connect(function() if pal.Humanoid.Sit == false then deb = false end end)
+pal.Humanoid.Changed:connect(function() if pal.Humanoid.Sit == false then deb = false end end)
